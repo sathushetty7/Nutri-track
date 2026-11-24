@@ -1,26 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "NutriTrack",
-  description: "Simple nutrition tracking for everyday progress.",
+  title: "NutriTrack - AI-Powered Nutrition Tracking & Smart Meal Planning",
+  description: "Track your nutrition, scan meals with AI, discover recipes by available ingredients, and reach your wellness goals.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className="antialiased min-h-screen bg-[var(--color-cream)] text-[var(--color-primary-text)] font-sans">
+        {children}
+      </body>
     </html>
   );
 }

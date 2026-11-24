@@ -1,69 +1,107 @@
-
+import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Heart } from "lucide-react";
-
-const footerLinks = [
-  { label: "Explore", href: "/explore" },
-  { label: "Meals", href: "/meals" },
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Sign up", href: "/signup" },
-];
+import { Leaf, ShieldCheck, Heart } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-[#fdfcf9] px-6 pb-8 pt-12 md:px-10 md:pt-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 border-b border-[#172b4d]/10 pb-10 md:grid-cols-[1.5fr_1fr]">
-          {/* Brand introduction */}
-          <div>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2.5"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#172b4d] text-sm font-bold text-white">
-                N
-              </span>
-
-              <span className="text-lg font-semibold tracking-[-0.04em] text-[#172b4d]">
-                Nutri<span className="text-[#7395bf]">Track</span>
+    <footer className="bg-white border-t border-[#E2E8E2] pt-14 pb-10 text-xs text-[#78847C]">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand & mission */}
+          <div className="md:col-span-2 space-y-3">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-[#173F35] flex items-center justify-center text-white">
+                <Leaf className="w-4 h-4" />
+              </div>
+              <span className="text-lg font-bold tracking-tight text-[#173F35]">
+                NutriTrack
               </span>
             </Link>
-
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#7b8494]">
-              Understand your food. Build better habits. Make everyday
-              nutrition feel simpler.
+            <p className="max-w-md text-xs text-[#78847C] leading-relaxed">
+              Advanced AI-powered nutrition tracking and intelligent ingredient-based meal planning.
+              Engineered with modern full-stack software architecture, calibrated food databases, and
+              guilt-free lifestyle analytics.
             </p>
+            <div className="flex items-center gap-2 text-[11px] text-[#173F35] font-semibold pt-1">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Full-Stack Academic Mini-Project Demonstration</span>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div className="md:justify-self-end">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#8a94a6]">
-              Navigate
-            </p>
-
-            <div className="mt-4 grid grid-cols-2 gap-x-10 gap-y-3">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group flex items-center gap-1 text-sm font-medium text-[#667085] transition-colors hover:text-[#172b4d]"
-                >
-                  {link.label}
-                  <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
+          {/* Core capabilities */}
+          <div>
+            <h4 className="font-bold text-sm text-[#173F35] mb-3">Product Capabilities</h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/dashboard/scanner" className="hover:text-[#173F35] transition-colors">
+                  AI Meal Photo Scanner
                 </Link>
-              ))}
-            </div>
+              </li>
+              <li>
+                <Link href="/dashboard/recipes" className="hover:text-[#173F35] transition-colors">
+                  Ingredient Recipe Finder
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard" className="hover:text-[#173F35] transition-colors">
+                  Daily Nutrition Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard/goals" className="hover:text-[#173F35] transition-colors">
+                  Macronutrient Targets
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard/history" className="hover:text-[#173F35] transition-colors">
+                  Complete Food Diary
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal & Medical */}
+          <div>
+            <h4 className="font-bold text-sm text-[#173F35] mb-3">Legal & Safety</h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/privacy" className="hover:text-[#173F35] transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-[#173F35] transition-colors">
+                  Terms & Medical Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/login" className="hover:text-[#173F35] transition-colors">
+                  Account Sign In
+                </Link>
+              </li>
+              <li>
+                <Link href="/signup" className="hover:text-[#173F35] transition-colors">
+                  Create Account
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer bottom */}
-        <div className="flex flex-col justify-between gap-3 pt-6 text-xs text-[#8a94a6] sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} NutriTrack. All rights reserved.</p>
+        {/* Mandatory Medical Disclaimer Banner */}
+        <div className="p-4 rounded-xl bg-[#F8F7F1] border border-[#E2E8E2] text-[11px] text-[#78847C] leading-relaxed">
+          <strong className="text-[#202B25] font-semibold">Important Medical & Nutrition Disclaimer:</strong>{" "}
+          NutriTrack is an informational technology tool designed for educational, academic, and general wellness purposes only. It is not medical software and does not provide clinical diagnosis, treatment, or prescriptive medical advice. Computer vision food recognition, portion size estimations, and nutritional values may contain inaccuracies and must be reviewed by the user. Individuals with medical conditions, eating disorders, pregnancy, or metabolic diseases should consult a licensed physician or registered dietitian before making dietary changes.
+        </div>
 
-          <p className="flex items-center gap-1.5">
-            Made for better everyday choices
-            <Heart className="h-3.5 w-3.5 fill-[#7395bf] text-[#7395bf]" />
-          </p>
+        {/* Copyright */}
+        <div className="pt-6 border-t border-[#EDF2EC] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
+          <p>© {new Date().getFullYear()} NutriTrack. Designed with care for healthy living.</p>
+          <div className="flex items-center gap-1 text-[#78847C]">
+            <span>Crafted with</span>
+            <Heart className="w-3.5 h-3.5 text-[#173F35] fill-current" />
+            <span>for wellness technology.</span>
+          </div>
         </div>
       </div>
     </footer>
